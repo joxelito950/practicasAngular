@@ -1,0 +1,38 @@
+<div>
+  <h1>Notas Uno</h1>
+  <div>
+    <form [formGroup]="formularioNota" >
+      <div>
+        <input type="text" formControlName="nombre" placeholder="Nombre"/>
+        <span [hidden]="!formErrores.nombre">{{formErrores.nombre}}</span>
+      </div>
+      <div>
+        <input type="text" formControlName="dni" placeholder="Cedula"/>
+        <span [hidden]="!formErrores.dni">{{formErrores.dni}}</span>
+      </div>
+      <div>
+        <input type="text" formControlName="notaUno" placeholder="Nota 1"/>
+        <span [hidden]="!formErrores.notaUno">{{formErrores.notaUno}}</span>
+      </div>
+      <div>
+        <input type="text" formControlName="notaDos" placeholder="Nota 2"/>
+        <span [hidden]="!formErrores.notaDos">{{formErrores.notaDos}}</span>
+      </div>
+      <div>
+        <input type="text" formControlName="notaTres" placeholder="Nota 3"/>
+        <span [hidden]="!formErrores.notaTres">{{formErrores.notaTres}}</span>
+      </div>
+      <div>
+        <input type="text" formControlName="notaCuatro" placeholder="Nota 4"/>
+        <span [hidden]="!formErrores.notaCuatro">{{formErrores.notaCuatro}}</span>
+      </div>
+      <div>
+        <button></button>
+      </div>
+    </form>
+    <div>
+      <h3>El promedio es:</h3>
+      <span>{{promedio}}</span>
+    </div>
+  </div>
+</div>

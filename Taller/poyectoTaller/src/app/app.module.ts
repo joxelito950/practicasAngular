@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ListadoComponent } from './paginas/listado/listado.component';
+import { FormularioNotasUnoComponent } from './paginas/formulario-notas-uno/formulario-notas-uno.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListadoComponent,
+    FormularioNotasUnoComponent
   ],
   imports: [
     BrowserModule,
