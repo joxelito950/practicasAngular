@@ -38,22 +38,26 @@ export class FormularioNotas {
             notaUno: ['', [
                 Validators.required,
                 Validators.minLength(1),
-                Validators.maxLength(1),
+                Validators.min(0),
+                Validators.max(5),
             ]],
             notaDos: ['', [
                 Validators.required,
                 Validators.minLength(1),
-                Validators.maxLength(1),
+                Validators.min(0),
+                Validators.max(5),
             ]],
             notaTres: ['', [
                 Validators.required,
                 Validators.minLength(1),
-                Validators.maxLength(1),
+                Validators.min(0),
+                Validators.max(5),
             ]],
             notaCuatro: ['', [
                 Validators.required,
                 Validators.minLength(1),
-                Validators.maxLength(1),
+                Validators.min(0),
+                Validators.max(5),
             ]],
         });
         this.suscribirFormulario();

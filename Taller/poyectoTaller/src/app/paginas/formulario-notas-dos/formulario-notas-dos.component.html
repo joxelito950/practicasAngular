@@ -1,22 +1,22 @@
 <div>
-  <h1>Notas Uno</h1>
+  <h1>Notas Dos</h1>
   <div>
     <form [formGroup]="formularioNota">
       <div>
         <input name="nombre" formControlName="nombre" type="text" placeholder="Nombre"/>
-        <div *ngIf="formErrores.nombre">{{formErrores.nombre}}</div>
+        <div *ngIf="formularioNota.nombre">{{nombre | json }}</div>
       </div>
       <div>
         <input name="dni" formControlName="dni" appValidacion [group]="formularioNota" type="number" placeholder="Cedula"/>
-        <div *ngIf="formErrores.dni">{{formErrores.dni}}</div>
+        <div *ngIf="formErrores.dni">{{dni | json }}</div>
       </div>
       <div>
         <input name="notaUno" formControlName="notaUno" appValidacion [group]="formularioNota" type="number" placeholder="Nota 1"/>
-        <div *ngIf="formErrores.notaUno">{{formErrores.notaUno}}</div>
+        <div *ngIf="formErrores.notaUno">{{notaUno | json }}</div>
       </div>
       <div>
-        <input  formControlName="notaDos" appValidacion [group]="formularioNota" type="number" placeholder="Nota 2"/>
-        <div name="notaDos" *ngIf="formErrores.notaDos">{{formErrores.notaDos}}</div>
+        <input name="notaDos" formControlName="notaDos" appValidacion [group]="formularioNota" type="number" placeholder="Nota 2"/>
+        <div *ngIf="formErrores.notaDos">{{formErrores.notaDos}}</div>
       </div>
       <div>
         <input name="notaTres" formControlName="notaTres" appValidacion [group]="formularioNota" type="number" placeholder="Nota 3"/>
@@ -30,7 +30,7 @@
     </form>
     <div *ngIf="promedio">
       <h3>El promedio es:</h3>
-      <span>{{promedio}}</span>
+      <span>{{formularioNota | promedio}}</span>
     </div>
   </div>
 </div>

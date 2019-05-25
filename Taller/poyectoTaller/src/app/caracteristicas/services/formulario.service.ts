@@ -13,8 +13,7 @@ export class FormularioService {
       required: 'El campo es requerido',
       number: 'El campo es numerico',
       minlength: 'El minimo de caracteres no ah sido alcanzado',
-      manlength: 'Exedio el maximo de caracteres'
-
+      manlength: 'Ah excedio el maximo de caracteres'
     }
     return mensajes;
   };
@@ -28,10 +27,10 @@ export class FormularioService {
           
           const messages = this.messages();
           if(campo && !campo.valid){
-            if(campo.dirty || campo.touched){
+            if(campo.invalid && campo.touched){
               for(const key in campo.errors){
                 if(key){
-                  errores[nombreCampo]= errores[nombreCampo]||messages[key];
+                  errores[nombreCampo] = errores[nombreCampo] || messages[key];
                 } else{
                   errores[nombreCampo] = errores[nombreCampo] || messages[key](campo.errors[key]);
                 }
