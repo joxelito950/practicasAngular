@@ -1,6 +1,7 @@
 import { Directive, Input, OnInit, ElementRef, HostListener } from '@angular/core';
 import { FormularioService } from '../services/formulario.service';
 import { FormGroup, AbstractControl } from '@angular/forms';
+import { element } from '@angular/core/src/render3';
 
 @Directive({
   selector: '[appValidacion]'
@@ -28,7 +29,12 @@ export class ValidacionDirective implements OnInit {
     if (69 === event.keyCode) {
       event.preventDefault();
     }
-    console.log(this.length, this.abstractControl);
+    const value = this.abstractControl.value;
+    if (this.length <= `${value}`.length) {
+      const newInput = `${value}`.substr(0, `${value}`.length - 1);
+      this.abstractControl.setValue(newInput);
+    }
+    console.log(this.group);
   }
   
   @HostListener('paste', ['$event']) blockPaste(e: KeyboardEvent) {

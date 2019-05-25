@@ -24,7 +24,6 @@ export class FormularioService {
       if(nombreCampo){
           errores[nombreCampo] = '';
           const campo = formulario.get(nombreCampo);
-          
           const messages = this.messages();
           if(campo && !campo.valid){
             if(campo.invalid && campo.touched){

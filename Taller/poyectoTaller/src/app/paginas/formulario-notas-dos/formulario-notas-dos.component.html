@@ -4,10 +4,15 @@
     <form [formGroup]="formularioNota">
       <div>
         <input name="nombre" formControlName="nombre" type="text" placeholder="Nombre"/>
-        <div *ngIf="formularioNota.nombre">{{nombre | json }}</div>
+        <div *ngIf="formularioNota.controls.nombre.errors?.minlength">minimo 4 caracteres</div>
+        <div *ngIf="formularioNota.controls.nombre.errors?.maxlength">maximo 50 caracteres</div>
+        <div *ngIf="formularioNota.controls.nombre.touched && formularioNota.controls.nombre.errors?.required">Requerido</div>
       </div>
       <div>
-        <input name="dni" formControlName="dni" appValidacion [group]="formularioNota" type="number" placeholder="Cedula"/>
+        <input name="dni" formControlName="dni" appValidacion [group]="formularioNota" type="text" placeholder="Cedula"/>
+        <div *ngIf="formularioNota.controls.dni.touched && formularioNota.controls.dni.errors?.required">Requerido</div>
+        <div *ngIf="formularioNota.controls.dni.errors?.minlength">minimo 6 caracteres</div>
+        <div *ngIf="formularioNota.controls.dni.errors?.maxlength">maximo 11 caracteres</div>
         <div *ngIf="formErrores.dni">{{dni | json }}</div>
       </div>
       <div>

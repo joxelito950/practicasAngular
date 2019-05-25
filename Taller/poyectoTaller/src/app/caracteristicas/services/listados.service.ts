@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Pelicula } from '../class/pelicula.class';
-import { PELICULAS } from '../../compartidos/peliculas-mock';
+import { Nota } from '../class/notas.class';
+import { NOTAS } from 'src/app/compartidos/notas';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,11 @@ export class ListadosService {
 
   constructor() { }
 
-  getPeliculas() :Observable<Pelicula[]> {
-    return of(PELICULAS);
+  getNotas() :Observable<Nota[]> {
+    return of(NOTAS);
+  }
+
+  addNota(nota: Nota) {
+    NOTAS.push(nota);
   }
 }

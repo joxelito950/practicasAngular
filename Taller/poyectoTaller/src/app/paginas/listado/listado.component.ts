@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListadosService } from '../../caracteristicas/services/listados.service';
-import { Pelicula } from 'src/app/caracteristicas/class/pelicula.class';
+import { Nota } from 'src/app/caracteristicas/class/notas.class';
 
 @Component({
   selector: 'app-listado',
@@ -9,19 +9,22 @@ import { Pelicula } from 'src/app/caracteristicas/class/pelicula.class';
   providers: [ListadosService]
 })
 export class ListadoComponent implements OnInit {
-  public listaPeliculas: Pelicula[];
+  public listaNotas: Nota[];
 
 
-  constructor(public servicioPeliculas: ListadosService) { }
+  constructor(public servicioNotas: ListadosService) { }
 
   ngOnInit() {
-    this.getPeliculas();
+    this.getNotas();
   }
-  getPeliculas() {
-    this.servicioPeliculas.getPeliculas().subscribe(
+  getNotas() {
+    this.servicioNotas.getNotas().subscribe(
       response => {
-        this.listaPeliculas = response;
+        this.listaNotas = response;
       }
     )
+  }
+  addNota(nota:Nota) {
+    this.servicioNotas.addNota(nota);
   }
 }
